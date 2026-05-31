@@ -1,13 +1,16 @@
-# COVID-19 Data Analysis Project
+# COVID-19 Data and Trend Analysis
 
-This model performs:
+## Features
+
 - Data Cleaning
+- Trend Analysis
 - Correlation Analysis
 - Probability Analysis
 - Linear Regression
-- Data Visualization
+- Visualization Dashboard
 
-Tools Used:
+## Technologies Used
+
 - Python
 - Pandas
 - NumPy

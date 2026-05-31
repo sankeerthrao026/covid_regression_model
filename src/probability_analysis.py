@@ -13,7 +13,9 @@ def probability_analysis(df):
     )
 
     print("\nRECOVERY PROBABILITY =")
+
     print(recovery_probability)
 
     print("\nDEATH PROBABILITY =")
+
     print(death_probability)

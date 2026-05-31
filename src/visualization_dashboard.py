@@ -2,39 +2,57 @@ import matplotlib.pyplot as plt
 
 def visualization_dashboard(df):
 
-    # LINE GRAPH
-    plt.figure(figsize=(10,6))
+    plt.style.use('ggplot')
 
-    plt.plot(df['Date'], df['Confirmed'])
+    # =====================================
+    # COUNTRY-WISE CASES
+    # =====================================
 
-    plt.title("Confirmed Cases Over Time")
-
-    plt.xlabel("Date")
-
-    plt.ylabel("Confirmed Cases")
-
-    plt.xticks(rotation=45)
-
-    plt.show()
-
-    # BAR CHART
     country_cases = df.groupby(
         'Country'
     )['Confirmed'].sum()
 
-    country_cases.plot(kind='bar')
+    plt.figure(figsize=(10,6))
 
-    plt.title("Country-wise Cases")
+    country_cases.sort_values(
+        ascending=False
+    ).plot(
+        kind='bar'
+    )
+
+    plt.title(
+        "Country-wise COVID Cases",
+        fontsize=16
+    )
+
+    plt.xlabel("Country")
+
+    plt.ylabel("Confirmed Cases")
+
+    plt.tight_layout()
 
     plt.show()
 
-    # HISTOGRAM
-    plt.hist(df['Active'])
+    # =====================================
+    # ACTIVE CASES HISTOGRAM
+    # =====================================
 
-    plt.title("Active Cases Distribution")
+    plt.figure(figsize=(8,6))
+
+    plt.hist(
+        df['Active'],
+        bins=10
+    )
+
+    plt.title(
+        "Active Cases Distribution",
+        fontsize=16
+    )
 
     plt.xlabel("Active Cases")
 
     plt.ylabel("Frequency")
+
+    plt.tight_layout()
 
     plt.show()
